@@ -1,0 +1,57 @@
+<%= form_with model: journal, class: "journal_form" do |f| %>
+  <section>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title, placeholder: "Enter the title here" %>
+      <% if journal.errors[:title].any? %>
+        <div class="error_message">
+          <ul>
+            <% journal.errors[:title].each do |error| %>
+              <li><%= error %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= f.label :cover_image %>
+      <%= f.file_field :cover_image %>
+    </div>
+  </section>
+
+  <section>
+    <div>
+      <div>
+        <%= f.label :edition_name %>
+        <%= f.text_field :edition_name, placeholder: "Add the edition" %>
+      </div>
+
+      <div>
+        <%= f.label :published_on %>
+        <%= f.text_field :published_on, placeholder: "Published on?" %>
+      </div>
+
+      <div>
+        <%= f.label :subtitle %>
+        <%= f.text_field :subtitle, placeholder: "Add a subtitle" %>
+      </div>
+    </div>
+
+    <div>
+      <%= f.label :intro %>
+      <%= f.text_area :intro, placeholder: "Add an intro" %>
+    </div>
+  </section>
+
+  <section>
+    <div>
+      <%= f.label :content %>
+      <%= f.text_area :content, placeholder: "Provide the content here in Markdown format: 1., 2...", rows: 10 %>
+    </div>
+  </section>
+
+  <div>
+    <%= f.submit "Postar" %>
+  </div>
+<% end %>
