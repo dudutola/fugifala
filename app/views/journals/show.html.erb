@@ -1,0 +1,22 @@
+<section>
+  <h1><%= raw(@journal.title) %></h1>
+
+  <div class="details">
+    <p><%= raw(@journal.edition_name) %></p>
+    <p><%= raw(@journal.published_on) %></p>
+  </div>
+
+  <div class="intro">
+
+    <% if @journal.cover_image.attached? %>
+      <%= cl_image_tag(@journal.cover_image.key, "cover_image") %>
+      <%# <%= image_tag @journal.cover_image, class: "cover_image" %>
+    <% else %>
+      <%= image_tag "default_cover.jpg", class: "cover_image" %>
+    <% end %>
+
+    <p><strong><%= raw(@journal.intro) %></strong></p>
+  </div>
+</section>
+
+<%= raw(@journal.content) %>

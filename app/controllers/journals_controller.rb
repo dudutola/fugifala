@@ -3,6 +3,10 @@ class JournalsController < ApplicationController
     @journals = Journal.ordered
   end
 
+  def show
+    @journal = Journal.find(params[:id])
+  end
+
   def new
     @journal = Journal.new
   end

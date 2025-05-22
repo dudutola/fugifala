@@ -1,3 +1,13 @@
 <h2>Jornal FUGIFALA</h2>
 
 <%= link_to "New journal", new_journal_path %>
+
+<div class="journal_cards">
+  <% @journals.each do |journal| %>
+    <%= link_to journal_path(journal) do %>
+      <div class="journal_card">
+        <%= journal.subtitle %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
