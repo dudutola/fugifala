@@ -14,8 +14,14 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <main class="container">
+
+    <% if controller_name == "journals" %>
+      <main class="container">
+        <%= yield %>
+      </main>
+    <% else %>
       <%= yield %>
-    </main>
+    <% end %>
+
   </body>
 </html>
