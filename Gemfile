@@ -68,3 +68,4 @@ end
 
 gem "devise", "~> 4.9"
 gem "ostruct"
+gem 'sass-rails', '~> 6.0'
