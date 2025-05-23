@@ -71,7 +71,10 @@ section {
       h1 {
         text-align: center;
         font-size: 3.8rem;
-        margin: 0;
+      }
+
+      .details {
+        margin-bottom: 20px;
       }
 
       .subtitle {
@@ -117,6 +120,10 @@ section {
       columns: 2;
       column-gap: 50px;
 
+      .subheading {
+        margin-top: 32px;
+      }
+
       p {
         margin: 0;
       }
@@ -125,5 +132,79 @@ section {
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+  .journals.show {
+    .container {
+      width: auto;
+      // margin: auto;
+      background-color: transparent;
+    }
+  }
 
+  .journal_container {
+     &--intro {
+      display: flex;
+      flex-direction: column;
+      padding: 80px 80px 0;
+
+      h1 {
+        text-align: center;
+        font-size: 3rem;
+      }
+
+      .details {
+        margin-bottom: 20px;
+      }
+
+      .subtitle {
+        font-size: 32px;
+        margin-bottom: 50px;
+      }
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      grid-gap: 2rem;
+
+      .cover {
+        display: flex;
+        align-items: center;
+      }
+      .cover_image.column {
+        object-fit: cover;
+        max-width: 100%;
+        width: auto;
+      }
+
+      .intro_content.column {
+        max-width: 100%;
+      }
+    }
+
+    .page_1 {
+      padding: 50px 80px 80px;
+      margin: 0 0 10px;
+    }
+
+    .page_2,
+    .page_3,
+    .page_4,
+    .page_5 {
+      padding: 80px;
+      margin: 10px 0;
+    }
+
+    section {
+      columns: 2;
+      column-gap: 50px;
+
+      .subheading {
+        margin-top: 32px;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+  }
 }
