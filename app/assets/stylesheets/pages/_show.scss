@@ -8,6 +8,16 @@
 
 section {
   background-color: $journal-bg;
+
+  .image_illustration {
+    max-width: 400px;
+    margin: 20px 0;
+
+    img {
+      width: 100%;
+      border-radius: 2px;
+    }
+  }
 }
 
 .journal_container {
@@ -56,7 +66,7 @@ section {
      &--intro {
       display: flex;
       flex-direction: column;
-      padding: 100px 100px 0;
+      padding: 90px 90px 0;
 
       h1 {
         text-align: center;
@@ -71,16 +81,17 @@ section {
     }
 
     .intro {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      width: 100%;
-      box-sizing: border-box;
-      overflow: hidden;
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      grid-gap: 2rem;
 
+      .cover {
+        display: flex;
+        align-items: center;
+      }
       .cover_image.column {
         object-fit: cover;
-        max-width: 420px;
+        max-width: 100%;
         width: auto;
       }
 
@@ -90,7 +101,7 @@ section {
     }
 
     .page_1 {
-      padding: 50px 100px 100px;
+      padding: 50px 90px 90px;
       margin: 0 0 10px;
     }
 
@@ -98,16 +109,16 @@ section {
     .page_3,
     .page_4,
     .page_5 {
-      padding: 100px;
+      padding: 90px;
       margin: 10px 0;
     }
-    section {
-      display: flex;
-      justify-content: space-between;
-      gap: 50px;
 
-      .column {
-        flex: 1;
+    section {
+      columns: 2;
+      column-gap: 50px;
+
+      p {
+        margin: 0;
       }
     }
   }

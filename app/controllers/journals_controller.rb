@@ -1,11 +1,10 @@
 class JournalsController < ApplicationController
+  before_action :set_journal, only: [ :show, :edit, :update ]
   def index
     @journals = Journal.ordered
   end
 
-  def show
-    @journal = Journal.find(params[:id])
-  end
+  def show; end
 
   def new
     @journal = Journal.new
@@ -15,13 +14,27 @@ class JournalsController < ApplicationController
     @journal = Journal.new(journal_params)
 
     if @journal.save
-      redirect_to journals_path, notice: "Journal was created successfully!"
+      redirect_to @journal, notice: "Journal was created successfully!"
     else
       render :new, status: :unprocessable_entity
     end
   end
 
+  def edit; end
+
+  def update
+    if @journal.update(journal_params)
+      redirect_to @journal, notice: "Journal was successfully updated!"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
+
+  def set_journal
+    @journal = Journal.find(params[:id])
+  end
 
   def journal_params
     params.require(:journal).permit(:title, :edition_name, :published_on, :subtitle, :intro, :content, :cover_image)
