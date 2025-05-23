@@ -1,0 +1,118 @@
+@import "../config/colors.scss";
+
+.journals.show {
+  .container {
+    background-color: $journal-bg;
+  }
+}
+
+section {
+  background-color: $journal-bg;
+}
+
+.journal_container {
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  // gap: 32px;
+
+  &--intro {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    .details {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .intro {
+      .cover_image.column {
+        width: 100%;
+      }
+    }
+
+    .subtitle {
+      text-align: left;
+      line-height: 1.4;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .journals.show {
+    .container {
+      width: 50%;
+      margin: auto;
+      background-color: transparent;
+    }
+  }
+
+  .journal_container {
+     &--intro {
+      display: flex;
+      flex-direction: column;
+      padding: 100px 100px 0;
+
+      h1 {
+        text-align: center;
+        font-size: 3.8rem;
+        margin: 0;
+      }
+
+      .subtitle {
+        font-size: 34px;
+        margin-bottom: 50px;
+      }
+    }
+
+    .intro {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+
+      .cover_image.column {
+        object-fit: cover;
+        max-width: 420px;
+        width: auto;
+      }
+
+      .intro_content.column {
+        max-width: 100%;
+      }
+    }
+
+    .page_1 {
+      padding: 50px 100px 100px;
+      margin: 0 0 10px;
+    }
+
+    .page_2,
+    .page_3,
+    .page_4,
+    .page_5 {
+      padding: 100px;
+      margin: 10px 0;
+    }
+    section {
+      display: flex;
+      justify-content: space-between;
+      gap: 50px;
+
+      .column {
+        flex: 1;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+}

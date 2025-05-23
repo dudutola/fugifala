@@ -1,22 +1,28 @@
-<section>
-  <h1><%= raw(@journal.title) %></h1>
+<div class="journal_container">
+  <section class="journal_container--intro">
+    <h1><%= raw(@journal.title) %></h1>
 
-  <div class="details">
-    <p><%= raw(@journal.edition_name) %></p>
-    <p><%= raw(@journal.published_on) %></p>
-  </div>
+    <div class="details">
+      <p><%= raw(@journal.edition_name) %></p>
+      <p><%= raw(@journal.published_on) %></p>
+    </div>
 
-  <div class="intro">
+    <div class="intro">
+      <div class="cover column">
+        <% if @journal.cover_image.attached? %>
+          <%= cl_image_tag(@journal.cover_image.key, "cover_image column") %>
+          <%# <%= image_tag @journal.cover_image, class: "cover_image" %>
+        <% else %>
+          <%= image_tag "default_cover.png", class: "cover_image column" %>
+        <% end %>
+      </div>
 
-    <% if @journal.cover_image.attached? %>
-      <%= cl_image_tag(@journal.cover_image.key, "cover_image") %>
-      <%# <%= image_tag @journal.cover_image, class: "cover_image" %>
-    <% else %>
-      <%= image_tag "default_cover.jpg", class: "cover_image" %>
-    <% end %>
+      <div class="intro_content column">
+        <h2 class="subtitle"><strong><%= raw(@journal.subtitle) %></strong></h2>
+        <p class=""><strong><%= raw(@journal.intro) %></strong></p>
+      </div>
+    </div>
+  </section>
 
-    <p><strong><%= raw(@journal.intro) %></strong></p>
-  </div>
-</section>
-
-<%= raw(@journal.content) %>
+  <%= raw(@journal.content) %>
+</div>
