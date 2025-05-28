@@ -11,10 +11,23 @@
   </head>
 
   <body class="<%= controller.controller_name %> <%= controller.action_name %>">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
     <% if controller_name == "journals" %>
+      <nav class="navbar">
+        <div class="nav_width">
+          <%= link_to root_path, class: "logo nav_link" do %>
+            <div class="title_block">
+              <p class="journal_label">Jorn<span>al</span></p>
+              <h1 class="journal_title"> FUGI<em>FALA</em></h1>
+            </div>
+          <% end %>
+
+          <div class="nav_items">
+            <%= link_to "jornais", journals_path, class: "nav_item journals" %>
+            <a href="https://www.zmacar.com/" target="_blank" class="nav_item nav_link">Zmacar</a>
+          </div>
+        </div>
+      </nav>
+
       <main class="container">
         <%= yield %>
       </main>
@@ -22,5 +35,7 @@
       <%= yield %>
     <% end %>
 
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
   </body>
 </html>

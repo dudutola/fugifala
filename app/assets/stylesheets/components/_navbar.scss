@@ -1,0 +1,97 @@
+@import "config/colors";
+
+.navbar {
+  background-color: $container-main-color;
+  padding: 26px 20px 20px;
+  border: 1px solid #cccccc78;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+
+  .nav_width {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  a {
+    text-decoration: none;
+   }
+
+  .logo {
+    margin-left: 48px;
+  }
+
+  .title_block {
+    height: auto;
+
+    .journal_label {
+      font-size: 1.2rem;
+      top: -12px;
+    }
+    .journal_title {
+      font-size: 1.6rem;
+    }
+  }
+
+  .nav_items {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .nav_item {
+      color: black;
+      font-weight: 600;
+    }
+
+    .journals {
+      padding: 4px 12px;
+      border: 1px solid black;
+      border-radius: 20px;
+
+      &:hover {
+        background-color: black;
+        color: white;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar {
+    .nav_width {
+      width: 80%;
+      margin: auto;
+    }
+
+    .logo {
+      margin-left: 48px;
+      text-decoration: none;
+    }
+
+    .title_block {
+      height: auto;
+
+      .journal_label {
+        font-size: 1.6rem;
+        top: -12px;
+      }
+      .journal_title {
+        font-size: 2.2rem;
+      }
+    }
+
+    .nav_items {
+      gap: 20px;
+
+      .journals {
+        padding: 4px 16px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+}
