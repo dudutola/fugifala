@@ -5,13 +5,23 @@
     <%= link_to journal_path(journal) do %>
       <div class="journal_card">
         <% if journal.cover_image_url.present? %>
-          <%= image_tag url_for(journal.cover_image_url), class: "cover_image_url" %>
+          <div class="journal_card-wrapper">
+            <%= image_tag url_for(journal.cover_image_url), class: "cover_image_url" %>
+
+            <div class="journal_card-subtitle">
+              <em><%= journal.subtitle %></em>
+            </div>
+          </div>
         <% else %>
           <%# add a default img later %>
-          <p>nono</p>
-        <% end %>
+          <div class="journal_card-wrapper">
+            <p>nono</p>
 
-        <%= journal.subtitle %>
+            <div class="journal_card-subtitle">
+              <em><%= journal.subtitle %></em>
+            </div>
+          </div>
+        <% end %>
       </div>
     <% end %>
   <% end %>
