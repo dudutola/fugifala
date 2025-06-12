@@ -18,6 +18,11 @@
       <%= f.label :cover_image %>
       <%= f.file_field :cover_image %>
     </div>
+
+    <div>
+      <%= f.label :cover_image_url, "Or paste the URL" %>
+      <%= f.text_field :cover_image_url, placeholder: "https://..." %>
+    </div>
   </section>
 
   <section>

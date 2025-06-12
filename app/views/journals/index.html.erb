@@ -1,11 +1,16 @@
-<h2>Jornal FUGIFALA</h2>
-
 <%= link_to "New journal", new_journal_path %>
 
 <div class="journal_cards">
   <% @journals.each do |journal| %>
     <%= link_to journal_path(journal) do %>
       <div class="journal_card">
+        <% if journal.cover_image_url.present? %>
+          <%= image_tag url_for(journal.cover_image_url), class: "cover_image_url" %>
+        <% else %>
+          <%# add a default img later %>
+          <p>nono</p>
+        <% end %>
+
         <%= journal.subtitle %>
       </div>
     <% end %>
