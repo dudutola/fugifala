@@ -1,4 +1,6 @@
-<%= link_to "New journal", new_journal_path %>
+<% if current_admin %>
+  <%= link_to "New journal", new_journal_path %>
+<% end %>
 
 <% @journals_by_year.each do |year, journals| %>
   <h2><%= year || "Sem Data" %></h2>

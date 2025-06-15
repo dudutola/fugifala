@@ -1,4 +1,6 @@
 class JournalsController < ApplicationController
+  before_action :authenticate_admin!, only: [:new, :create, :edit, :update]
+
   before_action :set_journal, only: [ :show, :edit, :update ]
   def index
     @journals = Journal.ordered
