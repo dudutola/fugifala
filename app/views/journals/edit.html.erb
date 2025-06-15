@@ -1,5 +1,5 @@
-<h1>Edit Journal</h1>
+<h1 class="journal-page-title">Edit Journal</h1>
 
 <%= render "form", journal: @journal %>
 
-<%= link_to "> Back", journals_path, class: "back" %>
+<%= link_to "&gt; Back".html_safe, journals_path, class: "back-link" %>
