@@ -22,7 +22,7 @@
           <% end %>
 
           <div class="nav_items">
-            <%= link_to "jornais", journals_path, class: "nav_item journals" %>
+            <%= link_to "jornais", journals_path, class: "nav_item journals #{'active' if controller_name == 'journals' && action_name == 'index'}" %>
             <a href="https://www.zmacar.com/" target="_blank" class="nav_item nav_link">Zmacar</a>
           </div>
         </div>

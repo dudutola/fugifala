@@ -2,6 +2,7 @@ class JournalsController < ApplicationController
   before_action :set_journal, only: [ :show, :edit, :update ]
   def index
     @journals = Journal.ordered
+    @journals_by_year = Journal.order(published_at_date: :desc).group_by { |j| j.published_at_date&.year }
   end
 
   def show; end
@@ -37,6 +38,6 @@ class JournalsController < ApplicationController
   end
 
   def journal_params
-    params.require(:journal).permit(:title, :edition_name, :published_on, :subtitle, :intro, :content, :cover_image, :cover_image_url)
+    params.require(:journal).permit(:title, :edition_name, :published_on, :subtitle, :intro, :content, :cover_image, :cover_image_url, :published_at_date)
   end
 end

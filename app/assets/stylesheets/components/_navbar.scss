@@ -18,7 +18,7 @@
 
   a {
     text-decoration: none;
-   }
+  }
 
   .logo {
     margin-left: 48px;
@@ -44,6 +44,11 @@
     .nav_item {
       color: black;
       font-weight: 600;
+
+      &.active {
+        background-color: black;
+        color: white;
+      }
     }
 
     .journals {

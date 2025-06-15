@@ -17,6 +17,10 @@ section {
       width: 100%;
       border-radius: 2px;
     }
+
+    .width_200 {
+      width: 200px;
+    }
   }
 }
 
@@ -43,6 +47,10 @@ section {
     .intro {
       .cover_image.column {
         width: 100%;
+      }
+
+      .no_strong {
+        font-weight: normal;
       }
     }
 
@@ -111,7 +119,8 @@ section {
     .page_2,
     .page_3,
     .page_4,
-    .page_5 {
+    .page_5,
+    .page_6 {
       padding: 90px;
       margin: 10px 0;
     }
@@ -189,7 +198,8 @@ section {
     .page_2,
     .page_3,
     .page_4,
-    .page_5 {
+    .page_5,
+    .page_6 {
       padding: 80px;
       margin: 10px 0;
     }
