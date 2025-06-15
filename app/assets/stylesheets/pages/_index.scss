@@ -1,20 +1,22 @@
-// .container {
-  // padding: 8rem 0 0;
-  // width: 60%;
-  // margin: auto;
-// }
+.journals.index .container {
+  padding: 20px 0 20px 20px;
+}
 
 .journal_cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem;
+  scroll-snap-type: x mandatory;
 
   .journal_card {
     position: relative;
-    height: 250px;
+    height: 200px;
     overflow: hidden;
     border-radius: 2px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    scroll-snap-align: start;
 
     &-wrapper {
       position: relative;
@@ -41,6 +43,37 @@
   }
 }
 
+details {
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #060606;
+    padding-right: 20px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      content: "▸";
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+    }
+  }
+}
+
+details[open] summary::after {
+  transform: rotate(90deg);
+}
+
 @media (min-width: 1024px) {
   .journals.index {
     .container {
@@ -51,11 +84,21 @@
   }
 
   .journal_cards {
+    display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 12px;
 
     .journal_card {
       height: 280px;
+    }
+  }
+
+  details {
+    summary {
+      align-items: start;
+      justify-content: initial;
+      width: 60px;
+      gap: 12px;
     }
   }
 }
@@ -70,7 +113,21 @@
   }
 
   .journal_cards {
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
+
+    .journal_card {
+      height: 250px;
+    }
+  }
+
+  details {
+    summary {
+      align-items: start;
+      justify-content: initial;
+      width: 58px;
+      gap: 12px;
+    }
   }
 }

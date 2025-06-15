@@ -1,34 +1,27 @@
 <% if current_admin %>
-  <%= link_to "New journal", new_journal_path %>
+  <%= link_to "New journal", new_journal_path, class: "new-journal-link" %>
 <% end %>
 
 <% @journals_by_year.each do |year, journals| %>
-  <h2><%= year || "Sem Data" %></h2>
+  <details class="journal-year-group" open>
+    <summary class="journal-year-title"><%= year || "Sem Data" %></summary>
 
-  <div class="journal_cards">
-    <% journals.each do |journal| %>
-      <%= link_to journal_path(journal) do %>
-        <div class="journal_card">
-          <% if journal.cover_image_url.present? %>
-            <div class="journal_card-wrapper">
+    <div class="journal_cards">
+      <% journals.each do |journal| %>
+        <%= link_to journal_path(journal), class: "journal_card" do %>
+          <div class="journal_card-wrapper">
+            <% if journal.cover_image_url.present? %>
               <%= image_tag url_for(journal.cover_image_url), class: "cover_image_url" %>
+            <% else %>
+              <div class="default-image">No image</div>
+            <% end %>
 
-              <div class="journal_card-subtitle">
-                <em><%= journal.subtitle %></em>
-              </div>
+            <div class="journal_card-subtitle">
+              <em><%= journal.subtitle %></em>
             </div>
-          <% else %>
-            <%# add a default img later %>
-            <div class="journal_card-wrapper">
-              <p>nono</p>
-
-              <div class="journal_card-subtitle">
-                <em><%= journal.subtitle %></em>
-              </div>
-            </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  </details>
 <% end %>
