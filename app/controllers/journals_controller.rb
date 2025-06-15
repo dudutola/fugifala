@@ -1,13 +1,15 @@
 class JournalsController < ApplicationController
   before_action :authenticate_admin!, only: [:new, :create, :edit, :update]
-
   before_action :set_journal, only: [ :show, :edit, :update ]
   def index
     @journals = Journal.ordered
     @journals_by_year = Journal.order(published_at_date: :desc).group_by { |j| j.published_at_date&.year }
   end
 
-  def show; end
+  def show
+    @next_journal = Journal.where("id > ?", @journal.id).order(id: :asc).first
+    @prev_journal = Journal.where("id < ?", @journal.id).order(id: :desc).first
+  end
 
   def new
     @journal = Journal.new
