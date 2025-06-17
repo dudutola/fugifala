@@ -38,7 +38,8 @@ class JournalsController < ApplicationController
   private
 
   def set_journal
-    @journal = Journal.find(params[:id])
+    # @journal = Journal.find(params[:id])
+    @journal = Journal.friendly.find(params[:id])
   end
 
   def journal_params
