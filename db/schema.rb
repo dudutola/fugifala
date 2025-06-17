@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_06_14_142114) do
+ActiveRecord::Schema[7.1].define(version: 2025_06_17_094311) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,6 +54,17 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_14_142114) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
   create_table "journals", force: :cascade do |t|
     t.string "title"
     t.string "edition_name"
@@ -65,6 +76,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_14_142114) do
     t.datetime "updated_at", null: false
     t.string "cover_image_url"
     t.date "published_at_date"
+    t.string "slug"
+    t.index ["slug"], name: "index_journals_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|

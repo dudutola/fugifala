@@ -70,3 +70,4 @@ gem "devise", "~> 4.9"
 gem "ostruct"
 gem "sassc"
 gem 'sass-rails', '~> 6.0'
+gem 'friendly_id', '~> 5.5.0'
