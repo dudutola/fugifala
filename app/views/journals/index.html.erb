@@ -17,7 +17,7 @@
             <% end %>
 
             <div class="journal_card-subtitle">
-              <em><%= journal.subtitle %></em>
+              <em><%= journal.subtitle.gsub(/<\/?em>/, '') %></em>
             </div>
           </div>
         <% end %>
