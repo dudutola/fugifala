@@ -7,8 +7,8 @@ class JournalsController < ApplicationController
   end
 
   def show
-    @next_journal = Journal.where("id > ?", @journal.id).order(id: :asc).first
-    @prev_journal = Journal.where("id < ?", @journal.id).order(id: :desc).first
+    @next_journal = Journal.where("published_at_date > ?", @journal.published_at_date).order(published_at_date: :asc).first
+    @prev_journal = Journal.where("published_at_date < ?", @journal.published_at_date).order(published_at_date: :desc).first
   end
 
   def new
