@@ -86,11 +86,15 @@ details[open] summary::after {
 
   .journal_cards {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 18px;
 
     .journal_card {
-      height: 280px;
+      height: 260px;
+
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
 
